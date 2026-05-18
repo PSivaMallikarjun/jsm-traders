@@ -85,7 +85,7 @@ function useInView(threshold = 0.15) {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true); }, { threshold });
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
-  }, []);
+  }, [threshold]);
   return [ref, inView];
 }
 
@@ -108,7 +108,7 @@ function FadeIn({ children, delay = 0, className = "" }) {
 
 export default function JSMTraders() {
   const [activeNav, setActiveNav] = useState("Home");
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [, setMenuOpen] = useState(false);
   const [activeFlour, setActiveFlour] = useState(0);
   const [formData, setFormData] = useState({ name: "", phone: "", service: "", message: "" });
   const [formSent, setFormSent] = useState(false);
